@@ -1,0 +1,78 @@
+{
+  "competition": [
+    {
+      "id": "b68e",
+      "title": "fornt end",
+      "description": "ccfghvjbknkkjgfhxdc",
+      "startDate": "2025-10-21T15:24",
+      "endDate": "2025-10-23T15:24",
+      "status": "Active"
+    },
+    {
+      "id": "6d40",
+      "fullName": "Bhavana Bhamare",
+      "email": "Bhavana@gmail.com",
+      "password": "Bhavana",
+      "collageName": "SSVPS,Dhule",
+      "role": "Participant"
+    },
+    {
+      "id": "2329",
+      "email": "test33@gmail.com",
+      "password": "445566"
+    },
+    {
+      "id": "072a",
+      "email": "test33@gmail.com",
+      "password": "445566"
+    },
+    {
+      "id": "210f",
+      "email": "tcs@gmail.com",
+      "password": "223344"
+    },
+    {
+      "id": "1236",
+      "email": "test22@gmail.com",
+      "password": "112233"
+    },
+    {
+      "id": "c3c6",
+      "email": "test22@gmail.com",
+      "password": "112233"
+    }
+  ],
+  "register": [
+    {
+      "id": "f461",
+      "fullName": "Bhavana Bhamare",
+      "email": "Bhavana@gmail.com",
+      "password": "Bhavana12345",
+      "collageName": "SSVPS,Dhule",
+      "role": "Participant"
+    },
+    {
+      "id": "ea84",
+      "email": "Bhavana@gmail.com",
+      "password": "Bhavana12345"
+    },
+    {
+      "id": "f990",
+      "fullName": "Ketan",
+      "email": "Ketan@gmail.com",
+      "password": "Ketan123",
+      "collageName": "K.K. Wagh,Nashik",
+      "role": "Organizer"
+    },
+    {
+      "id": "9868",
+      "email": "Ketan@gmail.com",
+      "password": "Ketan123"
+    },
+    {
+      "id": "32bf",
+      "email": "test22@gmail.com",
+      "password": "123456yu"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+    .parent {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+   
+   .auth-card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    #form-title {
+      font-size: 30px;
+      margin-right: 10px;
+      color: #764ba2;
+      font-weight: bold;
+    }
+
+    .form-toggle {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .form-toggle a {
+      background: none;
+      border: none;
+      color: #764ba2;
+      text-decoration: underline;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .form-group i {
+      margin-right: 8px;
+    }
+
+    .hidden {
+      display: none;
+    }

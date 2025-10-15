@@ -61,8 +61,12 @@ if (isMainModule(import.meta.url)) {
     console.log(`Node Express server listening on http://localhost:${port}`);
   });
 }
+// filepath: server.js or app.js
+const cors = require('cors');
+app.use(cors());
 
 /**
  * Request handler used by the Angular CLI (for dev-server and during build) or Firebase Cloud Functions.
  */
 export const reqHandler = createNodeRequestHandler(app);
+

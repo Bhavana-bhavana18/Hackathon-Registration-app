@@ -1,0 +1,65 @@
+<div class="parent">
+  <div class="auth-card mt-5 mb-5">
+
+
+    <!-- Register Form -->
+
+    <form id="registerForm" [class]="isLoginFormVisible() ? 'hidden' : '' " >
+      <h3 class="text-center mb-4" id="form-title"><span><i class="fa fa-user-plus"></i> </span> Register</h3>
+      <div class="mb-3 form-group">
+        <!-- <label><i class="fa fa-user"></i> Full Name</label> -->
+        <input type="text" class="form-control" [(ngModel)]="registerObj.fullName" name="fullName" placeholder="Full Name" required>
+      </div>
+      <div class="mb-3 form-group">
+        <!-- <label><i class="fa fa-envelope"></i> Email</label> -->
+        <input type="email" class="form-control" [(ngModel)]="registerObj.email" name="email" placeholder="Email" required>
+      </div>
+      <div class="mb-3 form-group">
+        <!-- <label><i class="fa fa-lock"></i> Password</label> -->
+        <input type="password" class="form-control" [(ngModel)]="registerObj.password"name="password" placeholder="Password" required>
+      </div>
+      <div class="mb-3 form-group">
+        <!-- <label><i class="fa fa-university"></i> College Name</label> -->
+        <input type="text" class="form-control" [(ngModel)]="registerObj.collageName" name="collageName" placeholder="Collage Name" required>
+      </div>
+      <div class="mb-3 form-group">
+        <!-- <label><i class="fa fa-user-circle"></i> Role</label> -->
+        <select class="form-control" [(ngModel)]="registerObj.role" name="role" required>
+          <option value="">Select Role</option>
+          <option value="Participant">Participant</option>
+          <option value="Organizer">Organizer</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary w-100" (click)="onRegister()">Register</button>
+      <!-- Toggle Button -->
+      <div class="form-toggle">
+        <span id="toggleText">Already have an account?</span>
+        <a  class="mb-2 text-center fw-bold" (click)="toggleForm()"> Login</a>
+      </div>
+    </form>
+
+    <!-- Login Form -->
+    <form id="loginForm" [class]="isLoginFormVisible() ? '' : 'hidden' ">
+      <h3 class="text-center mb-4" id="form-title"><span> <i class="fa fa-sign-in"></i> </span> Login</h3>
+      <div class="mb-3 form-group">
+        <!-- <label><i class="fa fa-envelope"></i> Email</label> -->
+        <input type="email" class="form-control" [(ngModel)]="loginObj.email" name="email" placeholder="Email" required>
+      </div>
+      <div class="mb-3 form-group">
+        <!-- <label><i class="fa fa-lock"></i> Password</label> -->
+        <input type="password" class="form-control" [(ngModel)]="loginObj.password" name="password" placeholder="Password" required>
+      </div>
+      <button type="submit" class="btn btn-success w-100" (click)="onLogin()">Login</button>
+      <!-- Toggle Button -->
+      <div class="form-toggle">
+        <a class="mb-2 text-center fw-bold" (click)="toggleForm()">New user? Register here</a>
+      </div>
+    </form>
+
+    <!-- Toggle Button -->
+    <!-- <div class="form-toggle">
+      <span id="toggleText">Already have an account?</span>
+      <button id="toggleBtn">Login</button>
+    </div> -->
+  </div>
+</div>
