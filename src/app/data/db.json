@@ -1,78 +1,159 @@
 {
   "competition": [
     {
-      "id": "b68e",
-      "title": "fornt end",
-      "description": "ccfghvjbknkkjgfhxdc",
-      "startDate": "2025-10-21T15:24",
-      "endDate": "2025-10-23T15:24",
-      "status": "Active"
+      "id": "1",
+      "title": "front end",
+      "description": "description of front end",
+      "startDate": "2025-10-16T00:21",
+      "endDate": "2025-10-23T00:21",
+      "status": "Upcoming",
+      "CompetationId": 1
     },
     {
-      "id": "6d40",
-      "fullName": "Bhavana Bhamare",
-      "email": "Bhavana@gmail.com",
-      "password": "Bhavana",
-      "collageName": "SSVPS,Dhule",
-      "role": "Participant"
+      "id": "2",
+      "title": "Backend",
+      "description": "Description of backend",
+      "startDate": "2025-10-20T03:22",
+      "endDate": "2025-10-25T00:16",
+      "status": "",
+      "CompetationId": 2
     },
     {
-      "id": "2329",
-      "email": "test33@gmail.com",
-      "password": "445566"
+      "id": "3",
+      "title": "cloud",
+      "description": "Description of cloud",
+      "startDate": "2025-10-20T16:29",
+      "endDate": "2025-10-24T16:29",
+      "status": "Active",
+      "CompetationId": 3
     },
     {
-      "id": "072a",
-      "email": "test33@gmail.com",
-      "password": "445566"
-    },
-    {
-      "id": "210f",
-      "email": "tcs@gmail.com",
-      "password": "223344"
-    },
-    {
-      "id": "1236",
-      "email": "test22@gmail.com",
-      "password": "112233"
-    },
-    {
-      "id": "c3c6",
-      "email": "test22@gmail.com",
-      "password": "112233"
+      "id": 4,
+      "title": "ttftgg",
+      "description": "nnuhuygyv",
+      "startDate": "2025-11-01T01:12",
+      "endDate": "2025-11-01T07:16",
+      "status": "",
+      "CompetationId": 4
     }
   ],
   "register": [
     {
-      "id": "f461",
+      "id": "1",
       "fullName": "Bhavana Bhamare",
       "email": "Bhavana@gmail.com",
-      "password": "Bhavana12345",
+      "password": "Bhavana123",
       "collageName": "SSVPS,Dhule",
-      "role": "Participant"
+      "role": "Participant",
+      "userId": 1
     },
     {
-      "id": "ea84",
-      "email": "Bhavana@gmail.com",
-      "password": "Bhavana12345"
-    },
-    {
-      "id": "f990",
-      "fullName": "Ketan",
+      "id": "2",
+      "fullName": "Ketan Mahale",
       "email": "Ketan@gmail.com",
       "password": "Ketan123",
       "collageName": "K.K. Wagh,Nashik",
-      "role": "Organizer"
-    },
-    {
-      "id": "9868",
-      "email": "Ketan@gmail.com",
-      "password": "Ketan123"
-    },
-    {
-      "id": "32bf",
-      "email": "test22@gmail.com",
-      "password": "123456yu"
+      "role": "Organizer",
+      "userId": 2
     }
-  ]
+  ],
+  "project": [
+    {
+      "id": 1,
+      "submissionId": 1,
+      "userId": 1,
+      "CompetationId": 4,
+      "projectTitle": "sdfgvb",
+      "description": "sdfgsdfg",
+      "githublink": "xdcfvgb",
+      "submissionDate": "2025-11-08",
+      "status": "",
+      "rank": "0"
+    },
+    {
+      "id": 2,
+      "submissionId": 2,
+      "userId": 1,
+      "CompetationId": 4,
+      "projectTitle": "sdfgvb",
+      "description": "sdfgsdfg",
+      "githublink": "xdcfvgb",
+      "submissionDate": "2025-11-08",
+      "status": "",
+      "rank": "0"
+    },
+    {
+      "id": 3,
+      "submissionId": 3,
+      "userId": 1,
+      "CompetationId": 4,
+      "projectTitle": "sdfgvb",
+      "description": "sdfgsdfg",
+      "githublink": "xdcfvgb",
+      "submissionDate": "2025-11-08",
+      "status": "",
+      "rank": "33"
+    },
+    {
+      "id": 4,
+      "submissionId": 4,
+      "userId": 1,
+      "CompetationId": 4,
+      "projectTitle": "sdfgvb",
+      "description": "sdfgsdfg",
+      "githublink": "xdcfvgb",
+      "submissionDate": "2025-11-08",
+      "status": "",
+      "rank": "45"
+    },
+    {
+      "id": 5,
+      "submissionId": 5,
+      "userId": 1,
+      "CompetationId": 4,
+      "projectTitle": "",
+      "description": "",
+      "githublink": "",
+      "submissionDate": "2025-10-30T07:49:55.504Z",
+      "status": "",
+      "rank": ""
+    },
+    {
+      "id": 6,
+      "submissionId": 6,
+      "userId": 1,
+      "CompetationId": null,
+      "projectTitle": "asdfghjk",
+      "description": "asdfghjk",
+      "githublink": "asdfghjk",
+      "submissionDate": "2025-11-08",
+      "status": "",
+      "rank": ""
+    },
+    {
+      "id": 7,
+      "submissionId": 7,
+      "userId": 1,
+      "CompetationId": 3,
+      "projectTitle": "fgvhbjnkm",
+      "description": "ghbjnkm",
+      "githublink": "ghbjnm",
+      "submissionDate": "2025-11-08",
+      "status": "",
+      "rank": ""
+    },
+    {
+      "id": 8,
+      "submissionId": 8,
+      "userId": 1,
+      "CompetationId": 3,
+      "projectTitle": "vbn",
+      "description": "ghjk",
+      "githublink": "ghj",
+      "submissionDate": "2025-11-08",
+      "status": "",
+      "rank": ""
+    }
+  ],
+  "submission": []
 }

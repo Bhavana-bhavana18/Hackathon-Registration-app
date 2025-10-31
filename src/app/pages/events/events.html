@@ -1,29 +1,44 @@
 <div class="container mt-5">
   <div class="row">
-
     <!-- Left Column: List of Competitions -->
     <div class="col-md-8 mb-4">
       <div class="card p-4">
-        <h4 class="mb-4 text-primary"><i class="fa fa-list"></i> Competitions</h4>
+        <h4 class="mb-4 text-primary">
+          <i class="fa fa-list"></i> Competitions
+        </h4>
         <div class="card-body">
-
           <div class="row" id="competitionList">
-            <div class="col-md-6 mb-4">
+            @for(item of gridData; track $index)
+            {
+            <div class="col-md-4 mb-4">
               <div class="card border-0 shadow-sm h-100">
                 <div class="card-body">
-                  <h6 class="card-title fw-bold">CodeFest 2025</h6>
-                  <p class="card-title small test-muted mb-2">Build innovative app in 24 hours</p>
-                  <p class="mb-1"><i class="fa fa-calendar"></i> 14 sep - 16 sep</p>
-                  <p class="mb-2">Status: Upcoming</p>
+                  <h6 class="card-title fw-bold">{{ item.title }}</h6>
+                  <p class="card-title small test-muted mb-2">
+                    {{ item.description }}
+                  </p>
+                  <p class="mb-1">
+                    <i class="fa fa-calendar"></i>
+                    {{ item.startDate | date : "dd-MM-yy" }} -
+                    {{ item.endDate | date : "dd-MM-yy" }}
+                  </p>
+                  <p class="mb-2">Status: {{ item.status }}</p>
                   <div class="d-flex justify-content-between">
-                    <button class="btn btn-sm btn-warning"> <i class="fa fa-pencil"></i> Edit</button>
-                    <button class="btn btn-sm btn-danger"> <i class="fa fa-trash"></i> Delete</button>
+                    <button class="btn btn-sm btn-warning">
+                      <i class="fa fa-pencil"></i> Edit
+                    </button>
+                    <button [routerLink]="'/submission/'+ item.CompetationId" class="btn btn-sm btn-warning">
+                      <i class="fa fa-paper"></i> see Submissions
+                    </button>
+                    <button class="btn btn-sm btn-danger">
+                      <i class="fa fa-trash"></i> Delete
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
+            }
           </div>
-
         </div>
       </div>
     </div>
@@ -74,30 +89,65 @@
 
     <div class="col-md-4 mb-4">
       <div class="card p-4">
-          <h5 class="mb-4 text-success fw-bold"><i class="fa fa-plus-circle"></i> Add / Edit Competition</h5>
+        <h5 class="mb-4 text-success fw-bold">
+          <i class="fa fa-plus-circle"></i> Add / Edit Competition
+        </h5>
         <div class="card-body">
           <form id="competitionForm">
             <div class="mb-3">
-              <input type="text" class="form-control" [(ngModel)]="competationObj.title" id="title" name="title" placeholder="Title" required>
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="competationObj.title"
+                id="title"
+                name="title"
+                placeholder="Title"
+                required
+              />
             </div>
 
             <div class="mb-3">
-              <textarea class="form-control" id="description" [(ngModel)]="competationObj.description" name="description" rows="3" placeholder="Description"></textarea>
+              <textarea
+                class="form-control"
+                id="description"
+                [(ngModel)]="competationObj.description"
+                name="description"
+                rows="3"
+                placeholder="Description"
+              ></textarea>
             </div>
 
             <div class="mb-3">
               <label for="startDate" class="form-label">Start Date</label>
-              <input type="datetime-local" class="form-control" id="startDate" [(ngModel)]="competationObj.startDate" name="startDate">
+              <input
+                type="datetime-local"
+                class="form-control"
+                id="startDate"
+                [(ngModel)]="competationObj.startDate"
+                name="startDate"
+              />
             </div>
 
             <div class="mb-3">
               <label for="endDate" class="form-label">End Date</label>
-              <input type="datetime-local" class="form-control" id="endDate" [(ngModel)]="competationObj.endDate" name="endDate">
+              <input
+                type="datetime-local"
+                class="form-control"
+                id="endDate"
+                [(ngModel)]="competationObj.endDate"
+                name="endDate"
+              />
             </div>
 
             <div class="mb-3">
               <!-- <label for="status" class="form-label">Status</label> -->
-              <select class="form-select" id="status" [(ngModel)]="competationObj.status" name="status" required>
+              <select
+                class="form-select"
+                id="status"
+                [(ngModel)]="competationObj.status"
+                name="status"
+                required
+              >
                 <option selected disabled>Select status</option>
                 <option value="Active">Active</option>
                 <option value="Upcoming">Upcoming</option>
@@ -105,11 +155,16 @@
               </select>
             </div>
 
-            <button type="button" class="btn btn-primary w-100" (click)="onSave()">Submit</button>
+            <button
+              type="button"
+              class="btn btn-primary w-100"
+              (click)="onSave()"
+            >
+              Submit
+            </button>
           </form>
         </div>
       </div>
-
     </div>
   </div>
 </div>

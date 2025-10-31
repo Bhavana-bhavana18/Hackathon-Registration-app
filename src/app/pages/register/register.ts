@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
 import { Master } from '../../service/master';
+import { RegisterModel } from '../../models/competation';
 // import { json } from 'node:stream/consumers';
 
 
@@ -20,7 +21,7 @@ export class Register {
   router = inject<any>(Router);
   masterService = inject<any>(Master);
 
-  registerObj: any = {
+  registerObj: RegisterModel = {
     "fullName": '',
     "email": '',
     "password": '',
@@ -31,15 +32,17 @@ export class Register {
     "email": '',
     "password": ''
   };
+ 
   toggleForm() {
     this.isLoginFormVisible.set(!this.isLoginFormVisible());
   }
   onRegister() 
   {
-    this.http.post("https://api.freeprojectapi.com/api/ProjectCompetition/register", this.registerObj).subscribe(
+    this.masterService.registerUser(this.registerObj).subscribe(
       {
-        next: (result: any) => {
+        next: (res: any) => {
           alert("Registration Successful");
+          console.log('register:', res)
         },
         error: (error:any) => 
           {
@@ -49,21 +52,67 @@ export class Register {
     )
   } 
   
+// onLogin()
+//   {
+//     this.http.post("https://api.freeprojectapi.com/api/ProjectCompetition/login",this.loginObj).subscribe(
+//       {
+//         next: (result: any) => {
+//           localStorage.setItem("hackathonuser", JSON.stringify(result));
+//           this.router.navigate(['/home']);
+//           this.masterService.$loginDone.next();
+//           alert("Login Successful");
+//         },
+//         error: (error:any) => 
+//           {
+//             alert(error.error);
+//           }  
+//       }
+//     )
+//   }
+
+
 onLogin()
   {
-    this.http.post("https://api.freeprojectapi.com/api/ProjectCompetition/login", this.loginObj).subscribe(
-      {
-        next: (result: any) => {
-          localStorage.setItem("hackathonuser", JSON.stringify(result));
-          this.router.navigate(['/home']);
-          this.masterService.$loginDone.next();
-          alert("Login Successful");
-        },
-        error: (error:any) => 
-          {
-            alert(error.error);
-          }  
+    this.http.get("http://localhost:3000/register").subscribe(
+    (users:any[]) => {
+      const user = users.find(u => 
+        u.email === this.loginObj.email && 
+        u.password === this.loginObj.password
+      );
+
+      if (user) {
+        localStorage.setItem("register", JSON.stringify(user));
+        this.router.navigate(["/home"]);
+        this.masterService.$loginDone.next();
+        alert("Login Successful!");
+      } else {
+        alert("Invalid email or password.");
       }
-    )
+    },
+    (error:any) => {
+      alert("Server error: " + error.message);
+    }
+  );
+
   }
+
+
+
+// onLogin() {
+//   const email = this.masterService.email;
+//   const password = this.masterService.password;
+
+//   this.masterService.loginUser(email, password).subscribe({
+//     next: (user:any) => {
+//       localStorage.setItem('register', JSON.stringify(user));
+//       this.router.navigate(['/home']);
+//       this.masterService.loginDone.next();
+//       alert('Login Successful');
+//     },
+//     error: (err:any) => {
+//       alert(err.message || 'Login Failed');
+//     }
+//   });
+// }
+
 }

@@ -23,7 +23,7 @@ export class App {
    reloadData()
    {
       if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
-    const localData = localStorage.getItem("hackathonuser");
+    const localData = localStorage.getItem("register");
     if(localData != null ) {
       this.loggedData = JSON.parse(localData);
     }
@@ -31,7 +31,7 @@ export class App {
    }
     logOut()
     {
-      localStorage.removeItem("hackathonuser");
+      localStorage.removeItem("register");
       this.loggedData = undefined;
     }
 

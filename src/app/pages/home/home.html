@@ -1,89 +1,87 @@
-
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <h1 class="display-4">Organize & Participate in Hackathons Easily</h1>
-      <p class="lead">Manage competitions, Registration, winners & more - all in one place.</p>
-      <a routerLink="/register" class="btn btn-light btn-lg mt-3"><i class="fa fa-pencil"></i> Register Now</a>
-      <a href="#dashboard" class="btn btn-outline-light btn-lg mt-3 ms-2"><i class="fa fa-trophy"></i> View Winners</a>
-    </div>
-  </section>
-
-  <!-- Features Section -->
-  <section class="features py-5 bg-light">
-    <div class="container">
-      <h2 class="text-center mb-3 fw-bold">Why Choose HackathonHub?</h2>
-      <p class="text-center mb-5">Built to help organizers & participats shine!</p>
-
-      <div class="row text-center">
-        <div class="col-md-4 mb-4">
-          <i class="fa fa-users mb-3"></i>
-          <h5>For Participants</h5>
-          <p>Quick and easy registration, real-time upadates, and team collaboration tools.</p>
-        </div>
-        <div class="col-md-4 mb-4">
-          <i class="fa fa-dashboard mb-3"></i>
-          <h5>For Organizer</h5>
-          <p>Manage registrations, communicate with teams, and schedule rounds smoothly.</p>
-        </div>
-        <div class="col-md-4 mb-4">
-          <i class="fa fa-trophy mb-3"></i>
-          <h5>Winner Dashboard</h5>
-          <p>Announce winners instantly with analytics & progress tracking dashboard.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Competitions Section -->
-<section class="py-5" id="competitions">
+<!-- Hero Section -->
+<section class="hero">
   <div class="container">
-    <h2 class="text-center mb-5 fw-bold">🏆 Upcoming Competitions</h2>
-    <h5 class="text-center mb-5"> Get ready to innovate & compete</h5>
-    <div class="row g-4">
+    <h1 class="display-4">Organize & Participate in Hackathons Easily</h1>
+    <p class="lead">
+      Manage competitions, Registration, winners & more - all in one place.
+    </p>
+    <a routerLink="/register" class="btn btn-light btn-lg mt-3"
+      ><i class="fa fa-pencil"></i> Register Now</a
+    >
+    <a href="#dashboard" class="btn btn-outline-light btn-lg mt-3 ms-2"
+      ><i class="fa fa-trophy"></i> View Winners</a
+    >
+  </div>
+</section>
 
-      <!-- Competition Card 1 -->
-      <div class="col-md-4">
-        <div class="card border-0 shadow-sm h-100">
-          <div class="card-body">
-            <h5 class="card-title text-primary">AI Innovation Hackathon</h5>
-            <p class="card-text">Build AI-powered tools to solve real-world problems.</p>
-            <p><i class="fa fa-calendar"></i> Oct 10, 2025</p>
-            <a href="#register" class="btn btn-outline-primary btn-sm"><i class="fa fa-pencil"></i> Register</a>
-          </div>
-        </div>
+<!-- Features Section -->
+<section class="features py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-3 fw-bold">Why Choose HackathonHub?</h2>
+    <p class="text-center mb-5">
+      Built to help organizers & participats shine!
+    </p>
+
+    <div class="row text-center">
+      <div class="col-md-4 mb-4">
+        <i class="fa fa-users mb-3"></i>
+        <h5>For Participants</h5>
+        <p>
+          Quick and easy registration, real-time upadates, and team
+          collaboration tools.
+        </p>
       </div>
-
-      <!-- Competition Card 2 -->
-      <div class="col-md-4">
-        <div class="card border-0 shadow-sm h-100">
-          <div class="card-body">
-            <h5 class="card-title text-primary">Web Dev Sprint</h5>
-            <p class="card-text">24-hour sprint to build responsive web applications.</p>
-            <p><i class="fa fa-calendar"></i> Nov 5, 2025</p>
-            <a routerLink="register" class="btn btn-outline-primary btn-sm"><i class="fa fa-pencil"></i> Register</a>
-          </div>
-        </div>
+      <div class="col-md-4 mb-4">
+        <i class="fa fa-dashboard mb-3"></i>
+        <h5>For Organizer</h5>
+        <p>
+          Manage registrations, communicate with teams, and schedule rounds
+          smoothly.
+        </p>
       </div>
-
-      <!-- Competition Card 3 -->
-      <div class="col-md-4">
-        <div class="card border-0 shadow-sm h-100">
-          <div class="card-body">
-            <h5 class="card-title text-primary">Smart City Challenge</h5>
-            <p class="card-text">Propose digital solutions to improve urban living.</p>
-            <p><i class="fa fa-calendar"></i> Dec 1, 2025</p>
-            <a href="#register" class="btn btn-outline-secondary btn-sm disabled"><i class="fa fa-lock"></i> Closed</a>
-          </div>
-        </div>
+      <div class="col-md-4 mb-4">
+        <i class="fa fa-trophy mb-3"></i>
+        <h5>Winner Dashboard</h5>
+        <p>
+          Announce winners instantly with analytics & progress tracking
+          dashboard.
+        </p>
       </div>
-
     </div>
   </div>
 </section>
 
-  <!-- Call to Action Section
+<!-- Competitions Section -->
+<section class="py-5" id="competitions">
+  <div class="container">
+    <h2 class="text-center mb-5 fw-bold">🏆 Upcoming Competitions</h2>
+    <h5 class="text-center mb-5">Get ready to innovate & compete</h5>
+    <div class="row g-4">
+      <!-- Competition Card 1 -->
+      @for(item of $eventList | async; track $index) {
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body">
+            <h5 class="card-title text-primary">{{item.title}}</h5>
+            <p class="card-text">
+              {{item.description}}
+            </p>
+            <p><i class="fa fa-calendar"></i> {{item.startDate | date: 'MMM dd, yy'}}</p>
+            <a [routerLink]="['/project', item.CompetationId]" class="btn btn-outline-primary btn-sm"
+              ><i class="fa fa-pencil"></i> Register</a
+            >
+            <!-- <a routerLink="/project/{{item.CompetationId}}" class="btn btn-outline-primary btn-sm"
+              ><i class="fa fa-pencil"></i> Register</a
+            > -->
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Section
   <section class="py-5 bg-light">
     <div class="container text-center">
       <h3 class="mb-4">Ready to Host or Participate?</h3>
@@ -91,4 +89,3 @@
       <a href="#organizer" class="btn btn-outline-primary btn-lg"><i class="fa fa-briefcase"></i> Organizer Panel</a>
     </div>
   </section> -->
-

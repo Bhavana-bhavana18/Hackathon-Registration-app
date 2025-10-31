@@ -1,18 +1,17 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CompetationModel } from '../../models/competation';
 import { Master } from '../../service/master';
-// import { User } from '../../models/competation';
-import { map } from 'rxjs';
-import { error } from 'console';
+import { DatePipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-events',
-  imports: [FormsModule],
+  imports: [FormsModule,DatePipe,RouterLink],
   templateUrl: './events.html',
   styleUrl: './events.css',
 })
-export class Events {
+export class Events implements OnInit{
   //if class is used
   // competationObj: CompetationModel = new CompetationModel();
   //if interface is used 
@@ -24,40 +23,41 @@ export class Events {
     status: ''
   };
   masterService = inject<any>(Master);
-  // user: User = {
-  //   name: '',
-  //   email: '',
-  // };
+  gridData: CompetationModel [] = [];
+  constructor()
+  {
+    this.getallData();
+  }
 
   onSave() {
-    this.masterService.onSaveCompetition(this.competationObj).subscribe({
+    this.masterService.onSaveCompetation(this.competationObj).subscribe({
       next: (res: any) => {
         alert('Competition created successfully!');
+       console.log('Saved:', res)
       },
       error: (err: any) => {
-        console.error(err);
+        console.error('Error:', err)
         alert(err.message || 'Unknown error occurred.');
       },
     });
   }
 
-  // ngOnInit() {
-  //   this.masterService.getUsers().subscribe((res: any) => {
-  //     console.log(res);
-  //   });
-  // }
-  // onSubmit() {
+  ngOnInit() {
+    // this.masterService.getUsers().subscribe((res: any) => {
+    //   console.log(res);
+    // });
+    this.getallData();
+  }
 
-  //   this.masterService.addUser(this.user)
-  //   .subscribe({
-  //     next: () => {
-  //       alert('Competition created successfully!');
-  //     },
-  //     error: (err:any) => {
-  //       console.error('Error adding user:', err);
-  //       alert(err.message || 'Failed to add user.');
+getallData()
+    {
+      this.masterService.getallCompetition().subscribe({
+        next:(res:any)=>{
+          this.gridData = res;
+        }
 
-  //     }
-  //   });
-  // }
+      })
+    }
+
+
 }

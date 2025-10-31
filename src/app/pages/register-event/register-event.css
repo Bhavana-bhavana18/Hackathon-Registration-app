@@ -1,0 +1,23 @@
+.card {
+  border-radius: 12px;
+}
+
+.card-header {
+  border-top-left-radius: 12px !important;
+  border-top-right-radius: 12px !important;
+}
+
+.form-label {
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  border-radius: 6px;
+}
+
+a
+{
+    border: none;
+    text-decoration: none;
+    color: #fff;
+}

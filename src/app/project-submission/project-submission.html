@@ -1,0 +1,55 @@
+<div class="container mt-4">
+  <h3 class="text-center mb-3">Project Submissions</h3>
+
+  <table class="table table-bordered table-striped table-hover">
+    <thead class="table-dark">
+      <tr>
+        <!-- <th>#</th> -->
+        <th>Submission ID</th>
+        <th>Project Title</th>
+        <th>Description</th>
+        <th>GitHub Link</th>
+        <th>Submission Date</th>
+        <th>Status</th>
+        <th>Rank</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for(i of submissionList; track $index){
+      <tr>
+        <td>{{ i.submissionId }}</td>
+        <td>{{ i.projectTitle || "—" }}</td>
+        <td>{{ i.description }}</td>
+        <!-- <td>{{ i.description || '—' }}</td> -->
+
+        <td>
+          @if(i.githublink){
+          <a [href]="i.githublink" target="_blank"> Open Repo </a>
+          } @if(!i.githublink){
+          <span>—</span>
+          }
+        </td>
+
+        <td>{{ i.submissionDate | date : "medium" }}</td>
+        <td><span class="badge text-center bg-info">{{ i.status || "Pending" }}</span></td>
+        <td><span class="badge text-center bg-success">{{ i.rank || "-" }}</span></td>
+        <td>
+            <button class="btn btn-sm btn-warning">
+                <i class="fa fa-pencil"></i> Edit
+            </button>
+            <button class="btn btn-sm btn-danger">
+                <i class="fa fa-trash"></i> Delete
+            </button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  <div class="text-center">
+    <button routerLink="/events" class="btn btn-sm btn-primary px-5 py-2 mb-5 mt-4">
+      <i class="fa fa-arrow-left"></i> Back
+    </button>
+  </div>
+</div>

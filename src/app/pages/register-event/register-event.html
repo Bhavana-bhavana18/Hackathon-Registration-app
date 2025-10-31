@@ -1,1 +1,77 @@
-<p>register-event works!</p>
+
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+
+      <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary text-white text-center">
+          <h4 class="mb-0">
+            <i class="fa fa-paper-plane mr-1"></i>  Project Submission</h4>
+        </div>
+
+        <div class="card-body">
+
+          <form [formGroup]="submissionForm">
+
+            <!-- Project Title -->
+            <div class="mb-3">
+              <label class="form-label fw-bold">Project Title</label>
+              <input type="text" class="form-control" formControlName="projectTitle" placeholder="Enter project title" required>
+            </div>
+
+            <!-- Description -->
+            <div class="mb-3">
+              <label class="form-label fw-bold">Project Description</label>
+              <textarea class="form-control" formControlName="description" rows="4" placeholder="Describe your project"></textarea>
+            </div>
+
+            <!-- GitHub Link -->
+            <div class="mb-3">
+              <label class="form-label fw-bold">GitHub Repository Link</label>
+              <input type="url" class="form-control" formControlName="githublink" placeholder="https://github.com/your-repo">
+            </div>
+
+            <!-- Submission Date -->
+            <div class="mb-3">
+              <label class="form-label fw-bold">Submission Date</label>
+              <input type="date" class="form-control" formControlName="submissionDate">
+            </div>
+
+            <!-- Status -->
+            <div class="mb-3">
+              <label class="form-label fw-bold">Status</label>
+              <select class="form-select">
+                <option selected disabled>Select status</option>
+                <option value="submitted">Submitted</option>
+                <option value="review">Under Review</option>
+                <option value="approved">Approved</option>
+                <option value="rejected">Rejected</option>
+              </select>
+            </div>
+
+            <!-- Rank -->
+            <div class="mb-3">
+              <label class="form-label fw-bold">Rank</label>
+              <input type="number" class="form-control" placeholder="Enter rank (if available)">
+            </div>
+
+            <!-- Submit Button -->
+            <div class="d-flex justify-content-around">
+              <button type="button" class="btn btn-success px-3" (click)="onSubmit()">
+                <i class="fa fa-check"></i> Submit Project
+              </button>
+              <button type="button" class="btn btn-primary px-3 ml-4">
+                <a routerLink="/home"><i class="fa fa-home"></i> Home</a>
+              </button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
